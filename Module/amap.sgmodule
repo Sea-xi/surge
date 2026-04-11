@@ -2,8 +2,8 @@
 #!desc=缺德地图有治了。
 #!author=RuCu6[https://github.com/RuCu6], kokoryh[https://github.com/kokoryh]
 #!icon=https://rucu6.pages.dev/Icons/app/amap.png
+#!category=广告
 #!date=2026-02-11 08:20
-#!loon_version=3.2.4(787)
 
 [Rule]
 AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"AMapiPhone*")),REJECT
