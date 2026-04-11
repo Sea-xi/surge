@@ -1,0 +1,223 @@
+#!name=Myblockads
+#!desc=其他软件去广告合集。
+#!category=广告模块
+#!date=2024-11-28 00:00:00
+
+[Rule]
+# ======= 0 ======= #
+#>12306
+DOMAIN,ad.12306.cn,DIRECT,extended-matching
+
+# ======= A ======= #
+
+# ======= B ======= #
+# 百度
+DOMAIN-SUFFIX,pos.baidu.com,REJECT,pre-matching
+DOMAIN,mobads.baidu.com,REJECT,pre-matching
+
+# 百度网盘
+AND,((DOMAIN-SUFFIX,pan.baidu.com),(PROTOCOL,TCP)),REJECT,pre-matching
+
+# ======= C ======= #
+
+# ======= D ======= #
+# DNS 无响应
+DOMAIN,adttrackingprd.hwwt8.com,REJECT,pre-matching
+
+# ======= G ======= #
+# 广告联盟
+AND,((DOMAIN-KEYWORD,mssdk),(DOMAIN-SUFFIX,zijieapi.com)),REJECT,pre-matching
+AND,((DOMAIN-KEYWORD,-misc-),(DOMAIN-SUFFIX,zijieapi.com)),REJECT,pre-matching
+DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT,pre-matching
+DOMAIN-KEYWORD,ads.g.doubleclick,REJECT,pre-matching
+DOMAIN-KEYWORD,asiad.byteactivity,REJECT,pre-matching
+DOMAIN-KEYWORD,open.douyin.com,REJECT,pre-matching
+DOMAIN-KEYWORD,pangolin-dsp-toutiao,REJECT,pre-matching
+DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT,pre-matching
+DOMAIN-KEYWORD,pangolin.snssdk.com,REJECT,pre-matching
+DOMAIN-KEYWORD,pglstatp-toutiao,REJECT,pre-matching
+DOMAIN-SUFFIX,adintl.cn,REJECT,pre-matching
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT,pre-matching
+DOMAIN-SUFFIX,ads.vungle.com,REJECT,pre-matching
+DOMAIN-SUFFIX,adservice.google.com,REJECT,pre-matching
+DOMAIN-SUFFIX,adukwai.com,REJECT,pre-matching
+DOMAIN-SUFFIX,adx.hubcloud.com.cn,REJECT,pre-matching
+DOMAIN-SUFFIX,applovin.com,REJECT,pre-matching
+DOMAIN-SUFFIX,applvn.com,REJECT,pre-matching
+DOMAIN-SUFFIX,appsflyer.com,REJECT,pre-matching
+DOMAIN-SUFFIX,appsflyersdk.com,REJECT,pre-matching
+DOMAIN-SUFFIX,kuaishouzt.com,REJECT,pre-matching
+DOMAIN-SUFFIX,miaozhen.com,REJECT,pre-matching
+DOMAIN-SUFFIX,ubixioe.com,REJECT,pre-matching
+DOMAIN-SUFFIX,unityads.unity3d.com,REJECT,pre-matching
+DOMAIN-SUFFIX,v.smtcdns.com,REJECT,pre-matching
+DOMAIN,ad.zijieapi.com,REJECT,pre-matching
+DOMAIN,adapi.izuiyou.com,REJECT,pre-matching
+DOMAIN,adsmartget.guangtuikeji.com,REJECT,pre-matching
+DOMAIN,adtracker.adfunlink.com,REJECT,pre-matching
+DOMAIN,alphas.adxvip.com,REJECT,pre-matching
+DOMAIN,df.tanx.com,REJECT,pre-matching
+DOMAIN,dig.bdurl.net,REJECT,pre-matching
+DOMAIN,dm.bytedance.com,REJECT,pre-matching
+DOMAIN,dm.pstatp.com,REJECT,pre-matching
+DOMAIN,dm.toutiao.com,REJECT,pre-matching
+DOMAIN,dsp-x.jd.com,REJECT,pre-matching
+DOMAIN,et.tanx.com,REJECT,pre-matching
+DOMAIN,gdfp.gifshow.com,REJECT,pre-matching
+DOMAIN,images.pinduoduo.com,REJECT,pre-matching
+DOMAIN,init.supersonicads.com,REJECT,pre-matching
+DOMAIN,janapi.jd.com,REJECT,pre-matching
+DOMAIN,lf-ad-ies.bytecdn.cn,REJECT,pre-matching
+DOMAIN,lf-leads-fe-scm.bytecdn.com,REJECT,pre-matching
+DOMAIN,mercury-gateway.ixiaochuan.cn,REJECT,pre-matching
+DOMAIN,mon.toutiao.com,REJECT,pre-matching
+DOMAIN,mon.toutiaocloud.com,REJECT,pre-matching
+DOMAIN,mon.toutiaocloud.net,REJECT,pre-matching
+DOMAIN,mon.zijieapi.com,REJECT,pre-matching
+DOMAIN,mssdk.bytedance.com,REJECT,pre-matching
+DOMAIN,mssdk.volces.com,REJECT,pre-matching
+DOMAIN,open.e.kuaishou.com,REJECT,pre-matching
+DOMAIN,open.kuaishou.com,REJECT,pre-matching
+DOMAIN,pagead2.googlesyndication-cn.com,REJECT,pre-matching
+DOMAIN,pagead2.googlesyndication.com,REJECT,pre-matching
+DOMAIN,s3.pstatp.com,REJECT,pre-matching
+DOMAIN,s3a.pstatp.com,REJECT,pre-matching
+DOMAIN,sdk.e.qq.com,REJECT,pre-matching
+DOMAIN,tangram.e.qq.com,REJECT,pre-matching
+DOMAIN,tnc3-alisc1.zijieapi.com,REJECT,pre-matching
+DOMAIN,tosv.boe.byted.org,REJECT,pre-matching
+DOMAIN,tosv.byted.org,REJECT,pre-matching
+DOMAIN,ws.tapjoyads.com,REJECT,pre-matching
+DOMAIN,www.googleadservices.com,REJECT,pre-matching
+
+# ======= H ======= #
+# httpdns
+DOMAIN,hdns.ksyun.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,httpdns.,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,httpdns-,REJECT,extended-matching,pre-matching
+
+# ======= J ======= #
+# 京东
+DOMAIN,dns.jd.com,REJECT,extended-matching,pre-matching
+IP-CIDR,101.124.19.122/32,REJECT,extended-matching,pre-matching,no-resolve
+IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,extended-matching,pre-matching,no-resolve
+URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT,pre-matching
+
+# ======= M ======= #
+# 美团
+DOMAIN,maplocatesdksnapshot.d.meituan.net,REJECT,extended-matching,pre-matching
+DOMAIN,metrics-picture.d.meituan.net,REJECT,extended-matching,pre-matching
+IP-CIDR,103.37.155.60/32,REJECT,no-resolve
+
+# ======= O ======= #
+# Outlook
+DOMAIN-SUFFIX,adnxs-simple.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adnxs.com,REJECT,extended-matching,pre-matching
+
+# ======= Q ======= #
+# 亲宝宝
+# >通用
+DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,zijieapi.com,REJECT
+DOMAIN,toblog.ctobsnssdk.com,REJECT
+DOMAIN,webcast-open.douyin.com,REJECT
+DOMAIN,mssdk.volces.com,REJECT
+DOMAIN,ios.bugly.qq.com,REJECT
+# >育儿模块
+DOMAIN,apipt.qbb6.com,REJECT
+# >商城模块
+DOMAIN,apimall.qbb6.com,REJECT
+# >日志
+DOMAIN,apilog.qbb6.com,REJECT
+
+# ======= S ======= #
+# 什么值得买
+DOMAIN,api.zuihuimai.com,REJECT,extended-matching,pre-matching
+
+# Speedtest
+DOMAIN,ads.pubmatic.com,REJECT,extended-matching,pre-matching
+DOMAIN,id.hadron.ad.gt,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,-adsystem.com,REJECT,extended-matching,pre-matching
+
+# ======= T ======= #
+# tiktok
+DOMAIN-KEYWORD,bds.snssdk.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,p3.pstatp.com,REJECT,extended-matching,pre-matching
+
+# ======= W ======= #
+# 微信
+DOMAIN-SUFFIX,wxs.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,badjs.weixinbridge.com,REJECT,extended-matching,pre-matching
+DOMAIN,dns.weixin.qq.com.cn,REJECT,extended-matching,pre-matching
+
+# ======= Z ======= #
+# 中国联通
+DOMAIN-SUFFIX,ad.10010.com,REJECT,extended-matching,pre-matching
+
+
+[URL Rewrite]
+# 中国联通
+# 广告推送
+^https?:\/\/m\.client\.10010\.com\/mobileserviceimportant\/customer\/querySmartServicekhd.htm - reject
+# 新人专享
+^https?:\/\/m\.client\.10010\.com\/clientIndex\/api\/v1\/index\/queryIndexExclusiveOffers - reject
+# 首页瀑布流
+^https?:\/\/img\.client\.10010\.com\/homejingxuan12\/js\/(pubuliu|1homeView) - reject
+
+
+[Body Rewrite]
+# 美团
+http-response-jq ^https:\/\/rms\.meituan\.com\/api\/v1\/rmsmina\/c\/queryShopPortalInfo\? 'delpaths([["data","popUpWindows"]])'
+
+# 中国联通
+http-response-jq ^https?:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWord '.["113000004"]=[]'
+http-response-jq ^https?:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter 'del(.["HomeFusion.backGroundQuery"], .["HomeFusion.bottomLabel"].bottomMallKey)'
+http-response-jq ^https?:\/\/m\.client\.10010\.com\/clientMyPage\/v\d\/api\/myWallet '.data={}'
+http-response-jq ^https?:\/\/m\.client\.10010\.com\/clientMyPage\/v\d\/api\/myPoints '.data={}'
+http-response-jq ^https?:\/\/m\.client\.10010\.com\/clientMyPage\/v\d\/api\/myColorfulRingtone '.data={}'
+http-response-jq ^https?:\/\/m\.client\.10010\.com\/clientMyPage\/v\d\/api\/newUserInfo '.data={}'
+http-response-jq ^https?:\/\/m\.client\.10010\.com\/clientMyPage\/v\d\/api\/getDeviceInfo '.data={}'
+
+
+[Map Local]
+# 百度云 //pan.baidu.com
+^https:\/\/pan\.baidu\.com\/(?:act\/|aipic\/|aisearch\/|api\/getsyscfg\?|rest\/) data-type=text data="{}" status-code=200
+
+# 微信公众号 //mp.weixin.qq.com
+# 公众号去除商品推广
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info\?action data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+# 美团 & 美团外卖 //flowplus.meituan.net, img.meituan.net, s3plus.meituan.net
+^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) data-type=tiny-gif status-code=200
+^https?:\/\/img\.meituan\.net\/bizad\/bizad_brandCpt_\d+\.jpg data-type=tiny-gif status-code=200
+^https?:\/\/img\.meituan\.net\/goodsawardpic\/[a-f0-9]+\.png\.webp data-type=tiny-gif status-code=200
+^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf_73\.json data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+\.zip$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^http:\/\/59\.82\.113\.10\/amdc\/mobileDispatch\?appkey=213807& data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+# 美团订单详情页更多推荐
+^https?:\/\/apimobile\.meituan\.com\/group\/v1\/recommend\/unity\/recommends data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+
+[Script]
+# 12306 //ad.12306.cn
+12306.ads = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://github.com/ddgksf2013/Scripts/raw/master/12306.js, requires-body=true, max-size=-1, timeout=60
+
+# 百度首页 //m.baidu.com, www.baidu.com, zhidao.baidu.com
+baidu_home = type=http-response, pattern=^https:\/\/(?:www|m)\.baidu\.com(\/|\/\?(tn=&)?from=\d+\w)?$, script-path=https://rucu6.pages.dev/Scripts/webpage/baidu-index.js, requires-body=true
+baidu_zhidao = type=http-response, pattern=^https:\/\/zhidao\.baidu\.com\/(?:question|index|\?fr|\?word), script-path=https://rucu6.pages.dev/Scripts/webpage/baidu-zhidao.js, requires-body=true
+
+# 微信封禁页面 //weixin110.qq.com, security.wechat.com
+wechat = type=http-response, pattern=^https\:\/\/(?:weixin110\.qq|security\.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://rucu6.pages.dev/Scripts/wechat.js, requires-body=true
+
+# JavDB //javdb.com
+javdb_web_ads = type=http-response, pattern=^https:\/\/javdb\.com\/(?!over18\?), script-path=https://rucu6.pages.dev/Scripts/webpage/myblockads.js, requires-body=true
+
+# Missav //missav.ai, missav.ws
+# missav.ads = type=http-response, pattern=^https?:\/\/missav\.(ws|live|com|ai)\/(?!(.*(api|login|cdn-cgi|verify|auth|captch|(\.(js|css|jpg|jpeg|png|webp|gif|zip|woff|woff2|m3u8|mp4|mov|m4v|avi|mkv|flv|rmvb|wmv|rm|asf|asx|mp3|json|ico|otf|ttf))))), script-path=https://ddgksf2013.top/scripts/missav.ads.js, requires-body=true, max-size=-1, timeout=60
+
+
+[MITM]
+hostname = %APPEND% ad.12306.cn, m.client.10010.com, img.client.10010.com, rms.meituan.com, m.baidu.com, www.baidu.com, zhidao.baidu.com, pan.baidu.com, flowplus.meituan.net, img.meituan.net, s3plus.meituan.net, javdb.com, missav.ai, missav.ws, missav.live, missav com, mp.weixin.qq.com, weixin110.qq.com, security.wechat.com
