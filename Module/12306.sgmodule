@@ -7,27 +7,16 @@
 # Rule（基础拦截）
 ##############################
 [Rule]
-DOMAIN,ad.12306.cn,REJECT
-
-##############################
-# URL Rewrite（快速拦截）
-##############################
-[URL Rewrite]
-^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList - reject
-
-##############################
-# Map Local（防闪广告）
-##############################
-[Map Local]
-# 返回空广告（避免闪屏）
-^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList data-type=text data="{\"materialsList\":[],\"advertParam\":{}}" status-code=200
+DOMAIN,ad.12306.cn,DIRECT
 
 ##############################
 # Script（页面净化核心）
 ##############################
 [Script]
-12306_clean_main = type=http-response, pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm, requires-body=true, max-size=0, script-path=https://raw.githubusercontent.com/Sea-xi/surge/refs/heads/main/js/12306-clean-pro.js
+# 12306
+移除12306开屏广告 = type=http-request, pattern=^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$, script-path=https://resource.wuyra.com/Script/BlockAds/12306.js, requires-body=true
 
+移除12306应用内广告 = type=http-request, pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$, script-path=https://resource.wuyra.com/Script/BlockAds/header.js
 ##############################
 # MITM（必须开启）
 ##############################
