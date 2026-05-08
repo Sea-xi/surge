@@ -1,0 +1,35 @@
+#!name=12306 Clean Pro (Surge)
+#!desc=12306 去广告 + 页面净化（长期维护版）
+#!author=Copilot
+#!category=AdBlock
+
+##############################
+# Rule（基础拦截）
+##############################
+[Rule]
+DOMAIN,ad.12306.cn,REJECT
+
+##############################
+# URL Rewrite（快速拦截）
+##############################
+[URL Rewrite]
+^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList - reject
+
+##############################
+# Map Local（防闪广告）
+##############################
+[Map Local]
+# 返回空广告（避免闪屏）
+^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList data-type=text data="{\"materialsList\":[],\"advertParam\":{}}" status-code=200
+
+##############################
+# Script（页面净化核心）
+##############################
+[Script]
+12306_clean_main = type=http-response, pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm, requires-body=true, max-size=0, script-path=https://example.com/12306-clean-pro.js
+
+##############################
+# MITM（必须开启）
+##############################
+[MITM]
+hostname = %APPEND% ad.12306.cn, mobile.12306.cn
