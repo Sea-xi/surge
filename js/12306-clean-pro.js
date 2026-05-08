@@ -1,6 +1,6 @@
 // ===== 12306 Clean Pro (Surge) =====
-// $B:n<T!'=E<LHG!J(B?$BG[(B Surge$B!K(B
-// $B8yG=!'5nVx9p(B + ?$BLL(B?$B2=(B + $BKI(B???$B>o(B
+// 作者：重写版（适配 Surge）
+// 功能：去广告 + 页面净化 + 防结构异常
 
 if (!$response.body) {
   $done({});
@@ -23,18 +23,18 @@ if (!obj) {
   $done({ body });
 }
 
-// ? ===== ?$BV"Vx9p(B?$BM}(B =====
+// ✅ ===== 开屏广告处理 =====
 if (url.includes("getAdList")) {
   obj.materialsList = [];
   obj.advertParam = {};
 }
 
-// ? ===== ?$BLL(B?$B2=!J3K?4!K(B=====
+// ✅ ===== 页面净化（核心）=====
 if (url.includes("mgw.htm")) {
   try {
     if (obj.data) {
       
-      // ? $B@:=Z;zCJ@6M}!J(B?$BDj!K(B
+      // ✅ 精准字段清理（稳定）
       delete obj.data.advertInfo;
       delete obj.data.banner;
       delete obj.data.popup;
@@ -43,7 +43,7 @@ if (url.includes("mgw.htm")) {
       delete obj.data.marketing;
       delete obj.data.operation;
 
-      // ? $B>o(B?$BVx9pMF4o(B
+      // ✅ 常见广告容器
       [
         "adList",
         "advertList",
@@ -52,7 +52,7 @@ if (url.includes("mgw.htm")) {
         "popupList"
       ].forEach(k => delete obj.data[k]);
 
-      // ? $B?t(B?$B@66u!JKI(B UI $B@j0L!K(B
+      // ✅ 数组清空（防 UI 占位）
       for (let key in obj.data) {
         if (
           Array.isArray(obj.data[key]) &&
@@ -67,7 +67,7 @@ if (url.includes("mgw.htm")) {
       }
     }
 
-    // ? $BA46I3uDl@6M}(B
+    // ✅ 全局兜底清理
     function deepClean(o) {
       if (!o || typeof o !== "object") return;
 
