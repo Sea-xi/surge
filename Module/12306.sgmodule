@@ -1,22 +1,15 @@
-#!name=12306 Clean Pro (Surge)
-#!desc=12306 去广告 + 页面净化（长期维护版）
+#!name=12306 Clean Pro
+#!desc=12306 去广告 + 页面净化
 #!author=Copilot
 #!category=Ad Block
-
-##############################
-# Rule（基础拦截）
-##############################
-[Rule]
-DOMAIN,ad.12306.cn,DIRECT
 
 ##############################
 # Script（页面净化核心）
 ##############################
 [Script]
 # 12306
-移除12306开屏广告 = type=http-request, pattern=^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$, script-path=https://resource.wuyra.com/Script/BlockAds/12306.js, requires-body=true
-
-移除12306应用内广告 = type=http-request, pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$, script-path=https://resource.wuyra.com/Script/BlockAds/header.js
+12306 = type=http-request,pattern=^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$,requires-body=1,engine=webview,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/12306.js
+12306 = type=http-request,pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$,requires-body=0,engine=webview,script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/12306.js
 ##############################
 # MITM（必须开启）
 ##############################
